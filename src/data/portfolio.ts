@@ -31,8 +31,3 @@ export const skills = [
   { title: "Cybersecurity", items: ["Nmap", "Burp Suite", "Wireshark", "Linux"] },
   { title: "Tools & APIs", items: ["Git", "GitHub", "REST APIs"] },
 ];
-
-export const learning = [
-  { category: "Learning platforms", items: [{ name: "TryHackMe", href: "" }, { name: "Hack The Box Academy", href: "" }, { name: "PortSwigger Web Security Academy", href: "" }] },
-  { category: "Coding practice", items: [{ name: "LeetCode", href: "" }, { name: "CodeChef", href: "" }] },
-];
