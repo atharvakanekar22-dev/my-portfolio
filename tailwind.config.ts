@@ -1,7 +1,29 @@
 import type { Config } from "tailwindcss";
+
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  theme: { extend: { colors: { ink: "#151515", lavender: "#7965A9", paper: "#FAFAFA" } } },
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        bg: "var(--color-bg)",
+        "bg-secondary": "var(--color-bg-secondary)",
+        text: "var(--color-text)",
+        "text-secondary": "var(--color-text-secondary)",
+        accent: "var(--color-accent)",
+        border: "var(--color-border)",
+      },
+      fontFamily: {
+        sans: [
+          "Inter",
+          "DM Sans",
+          "system-ui",
+          "-apple-system",
+          "sans-serif",
+        ],
+      },
+    },
+  },
   plugins: [],
 };
 export default config;

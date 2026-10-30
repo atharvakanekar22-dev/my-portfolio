@@ -1,48 +1,299 @@
-import { ArrowRight, ArrowUpRight, BookOpen, Boxes, Code2, Github, Heart, Linkedin, Mail, MapPin, Rocket, Shield, Sparkles, Terminal } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import ProjectVisual from "@/components/ProjectVisual";
+import GitHubGraph from "@/components/GitHubGraph";
+import ProjectCardVisual from "@/components/ProjectCardVisual";
 import Reveal from "@/components/Reveal";
-import { profile, projects, skills } from "@/data/portfolio";
-
-const expertise = [
-  { icon: Code2, title: "Software development", text: "Turning ideas into useful applications." },
-  { icon: Sparkles, title: "Artificial intelligence", text: "Exploring practical AI and machine learning." },
-  { icon: Shield, title: "Cybersecurity", text: "Studying systems, networks, and digital safety." },
-  { icon: Boxes, title: "Full-stack development", text: "Building across frontend, backend, and APIs." },
-];
+import { profile, projects, education, works } from "@/data/portfolio";
 
 export default function Home() {
-  return <>
-    <Navbar />
-    <main>
-      <section className="hero container" id="home">
-        <Reveal className="hero-copy">
-          <h1 className="name-display"><span>ATHARVA</span> <em>KANEKAR</em></h1>
-          <p className="hero-role">AI &amp; SOFTWARE ENGINEERING STUDENT</p>
-          <span className="short-rule"/>
-          <p className="hero-description">Exploring AI, building software, and solving real-world problems through technology.</p>
-          <div className="hero-actions"><a className="button button-dark" href="#projects">Explore my work <ArrowRight size={15}/></a><a className="button button-outline" href="#about">More about me</a></div>
-        </Reveal>
-      </section>
+  return (
+    <>
+      <Navbar />
+      <main>
+        {/* ============================================================
+            1. HOME — Centered, pure name highlight.
+            ============================================================ */}
+        <section className="hero" id="home">
+          <Reveal className="hero-inner">
+            <p className="hero-greeting">Hey, I&apos;m</p>
+            <h1 className="hero-name">
+              {profile.firstName}{" "}
+              <span className="accent">{profile.lastName}.</span>
+            </h1>
+          </Reveal>
+        </section>
 
-      <section className="expertise-band" id="expertise"><div className="container expertise-grid">{expertise.map(({icon: Icon,title,text})=><article className="expertise-item" key={title}><Icon className="line-icon" size={23} strokeWidth={1.35}/><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+        {/* ============================================================
+            2. ABOUT ME
+            ============================================================ */}
+        <section className="about-section section-spacing" id="about">
+          <div className="container">
+            <Reveal className="about-content">
+              <p className="section-label">About Me</p>
+              <h2 className="section-title">About Me</h2>
+              <p className="about-text">{profile.bio}</p>
+            </Reveal>
+          </div>
+        </section>
 
-      <section className="projects-section section-pad container" id="projects"><div className="section-heading"><div><p className="eyebrow">FEATURED WORK</p><h2>Selected Projects</h2><p className="section-intro">Built with curiosity. Designed to solve real problems.</p></div><a className="text-link" href={profile.github} target="_blank" rel="noreferrer">View all projects <ArrowRight size={14}/></a></div>
-        <div className="project-grid">{projects.map((project)=><article className="project-card" key={project.name}>{project.href ? <a className="project-image-link" href={project.href} aria-label={`View ${project.name} details`}><ProjectVisual type={project.visual}/><span className="project-open"><ArrowUpRight size={18}/></span></a> : <div className="project-image-link" aria-hidden="true"><ProjectVisual type={project.visual}/></div>}<div className="project-meta"><span>{project.category}</span><span>/{project.number}</span></div><h3>{project.name}</h3><p className="project-description">{project.description}</p><div className="tag-list">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="project-links">{project.href ? <a href={project.href}>View project <ArrowRight size={13}/></a> : <span className="link-placeholder">Project link to be added</span>}{project.repo ? <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} GitHub repository`}><Github size={15}/></a> : <span className="link-placeholder repo-placeholder">Repo to be added</span>}</div></article>)}</div>
-      </section>
+        {/* ============================================================
+            3. SELECTED PROJECTS
+            ============================================================ */}
+        <section className="projects-section section-spacing" id="projects">
+          <div className="container">
+            <Reveal className="section-header">
+              <p className="section-label">Selected Projects</p>
+              <h2 className="section-title">Selected Projects</h2>
+            </Reveal>
 
-      <section className="about-section" id="about"><div className="container about-layout"><div className="about-copy"><p className="eyebrow">ABOUT ME</p><p>I&apos;m an MCA student passionate about AI, software engineering, and cybersecurity.</p><p>I enjoy learning, experimenting, and building technology that solves meaningful problems.</p><div className="signature">Atharva Kanekar</div></div>
-        <div className="stats-list"><div className="stat-row"><BookOpen size={22}/><strong>MCA</strong><span>EDUCATION</span></div><div className="stat-row"><Rocket size={22}/><strong>20+</strong><span>FEATURED PROJECTS</span></div><div className="stat-row"><Terminal size={22}/><strong>15+</strong><span>TOOLS &amp; TECHNOLOGIES</span></div><div className="stat-row"><MapPin size={22}/><strong>Mumbai</strong><span>BASED IN INDIA</span></div><p className="stats-note">A snapshot of my current learning journey.</p></div>
-      </div></section>
+            <div className="project-grid">
+              {projects.map((project) => (
+                <Reveal className="project-card" key={project.name}>
+                  {/* Visual card header */}
+                  <ProjectCardVisual
+                    name={project.name}
+                    image={project.image}
+                    number={project.number}
+                  />
 
-      <section className="education-section container" id="education" aria-labelledby="education-heading"><div className="education-title"><p className="eyebrow">EDUCATION</p><h2 id="education-heading">Learning is<br/>the foundation.</h2></div><article className="education-entry"><span>2025 — PRESENT · PURSUING</span><h3>Master of Computer Applications</h3><p>DES Navinchandra Mehta Institute of Technology and Development, Mumbai</p><b>CGPA 8.32</b></article></section>
+                  <div className="project-info">
+                    <span className="project-number">{project.number}</span>
+                    <h3 className="project-name">{project.name}</h3>
+                    <p className="project-desc">{project.description}</p>
 
-      <section className="skills-section section-pad container" id="skills"><div className="section-heading"><div><p className="eyebrow">MY TOOLKIT</p><h2>Technologies I Work With</h2><p className="section-intro">Tools I&apos;m learning and using to bring ideas to life.</p></div><span className="section-index">01 — 05 / TOOLKIT</span></div><div className="skills-grid">{skills.map((group,i)=><article className="skill-group" key={group.title}><span className="skill-number">0{i+1}</span><h3>{group.title}</h3><ul>{group.items.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
+                    <div className="project-tags">
+                      {project.tags.map((tag) => (
+                        <span className="project-tag" key={tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-      <section className="cta-section container"><div><p className="eyebrow">HAVE A PROJECT OR OPPORTUNITY IN MIND?</p><h2>Let&apos;s Create Something <em>Meaningful Together.</em></h2></div><a className="button button-dark" href="#contact">Let&apos;s connect <ArrowRight size={15}/></a></section>
+                    <div className="project-links-row">
+                      {project.href ? (
+                        <a
+                          className="project-link"
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View Project <ArrowUpRight size={14} />
+                        </a>
+                      ) : project.repo ? (
+                        <a
+                          className="project-link"
+                          href={project.repo}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View Repository <ArrowUpRight size={14} />
+                        </a>
+                      ) : (
+                        <span className="project-link-placeholder">
+                          In Development
+                        </span>
+                      )}
 
-      <section className="contact-section section-pad container" id="contact"><div className="contact-heading"><p className="eyebrow">LET&apos;S TALK</p><h2>Good things start<br/><em>with a conversation.</em></h2><p>Have an interesting project? Let&apos;s talk.</p></div><div className="contact-details"><a className="contact-item" href={profile.linkedin} target="_blank" rel="noreferrer"><span><Linkedin size={17}/> LINKEDIN</span><strong>Connect with me <ArrowUpRight size={15}/></strong></a><a className="contact-item" href={profile.github} target="_blank" rel="noreferrer"><span><Github size={17}/> GITHUB</span><strong>Explore my work <ArrowUpRight size={15}/></strong></a><div className="contact-item"><span><Mail size={17}/> EMAIL</span><strong className="email-placeholder">Email address to be added</strong></div><div className="contact-item"><span><MapPin size={17}/> LOCATION</span><strong>Mumbai, Maharashtra, India</strong></div></div></section>
-    </main>
-    <footer className="footer"><div className="container footer-main"><a className="brand footer-brand" href="#home"><span className="brand-mark">AK</span><span className="brand-copy"><b>ATHARVA KANEKAR</b><small>AI &amp; SOFTWARE ENGINEERING</small></span></a><div className="footer-col"><b>QUICK LINKS</b><div><a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#skills">Skills</a></div></div><div className="footer-col"><b>EXPLORE</b><div><a href="#expertise">Expertise</a><a href="#contact">Contact</a></div></div><div className="footer-col footer-social"><b>FIND ME ONLINE</b><div><a href={profile.github} target="_blank" rel="noreferrer"><Github size={16}/> GitHub</a><a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={16}/> LinkedIn</a></div></div></div><div className="container footer-bottom"><span>© 2026 Atharva Kanekar.</span><span>Designed and developed with curiosity <Heart size={12}/></span></div></footer>
-  </>;
+                      {project.repo && project.href ? (
+                        <a
+                          className="project-icon-link"
+                          href={project.repo}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${project.name} GitHub repository`}
+                        >
+                          <Github size={16} />
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
+            4. EDUCATION
+            ============================================================ */}
+        <section
+          className="education-section section-spacing"
+          id="education"
+          aria-labelledby="education-heading"
+        >
+          <div className="container">
+            <Reveal className="section-header">
+              <p className="section-label" id="education-heading">
+                Education
+              </p>
+              <h2 className="section-title">Education</h2>
+            </Reveal>
+
+            <div className="education-grid">
+              {education.map((edu) => (
+                <Reveal className="education-card" key={edu.degree}>
+                  <span className="education-status">{edu.status}</span>
+                  <h3 className="education-degree">{edu.degree}</h3>
+                  <p className="education-institution">{edu.institution}</p>
+                  {edu.cgpa && (
+                    <p className="education-cgpa">CGPA: {edu.cgpa}</p>
+                  )}
+                  {edu.period && (
+                    <p className="education-period">{edu.period}</p>
+                  )}
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
+            5. GITHUB ACTIVITY
+            ============================================================ */}
+        <section className="github-section section-spacing" id="github">
+          <div className="container">
+            <div className="github-header">
+              <Reveal className="github-header-text">
+                <p className="section-label">GitHub Activity</p>
+                <h2 className="section-title">Building Consistently.</h2>
+              </Reveal>
+              <a
+                className="github-profile-link"
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                @{profile.githubUsername} <ArrowUpRight size={14} />
+              </a>
+            </div>
+
+            <GitHubGraph />
+          </div>
+        </section>
+
+        {/* ============================================================
+            6. MORE OF MY WORK
+            ============================================================ */}
+        <section className="works-section section-spacing" id="works">
+          <div className="container">
+            <Reveal className="section-header">
+              <p className="section-label">More of My Work</p>
+              <h2 className="section-title">More of My Work</h2>
+            </Reveal>
+
+            {works.length > 0 ? (
+              <div className="works-grid">
+                {works.map((work) => (
+                  <a
+                    className="works-card"
+                    key={work.name}
+                    href={work.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div>
+                      <p className="works-card-name">{work.name}</p>
+                      {work.description && (
+                        <p className="works-card-desc">{work.description}</p>
+                      )}
+                    </div>
+                    <ArrowUpRight size={16} />
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p className="works-empty">
+                Explore more on my{" "}
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "var(--color-accent)", fontWeight: 500 }}
+                >
+                  GitHub profile
+                </a>
+                .
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* ============================================================
+            7. CONNECT
+            ============================================================ */}
+        <section className="connect-section section-spacing" id="connect">
+          <div className="container">
+            <Reveal className="section-header">
+              <p className="section-label">Let&apos;s Connect</p>
+              <h2 className="connect-heading">
+                Have an idea? Let&apos;s connect.
+              </h2>
+            </Reveal>
+
+            <div className="connect-grid">
+              {/* GitHub */}
+              <a
+                className="connect-card"
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="connect-card-icon">
+                  <Github size={20} />
+                </div>
+                <div>
+                  <p className="connect-card-label">GitHub</p>
+                  <p className="connect-card-value">
+                    @{profile.githubUsername}
+                  </p>
+                </div>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                className="connect-card"
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="connect-card-icon">
+                  <Linkedin size={20} />
+                </div>
+                <div>
+                  <p className="connect-card-label">LinkedIn</p>
+                  <p className="connect-card-value">Atharva Kanekar</p>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a
+                className="connect-card"
+                href={`mailto:${profile.email}`}
+              >
+                <div className="connect-card-icon">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p className="connect-card-label">Email</p>
+                  <p className="connect-card-value">{profile.email}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* ============================================================
+          FOOTER
+          ============================================================ */}
+      <footer className="site-footer">
+        <div className="container footer-content">
+          <span className="footer-text">© 2026 Atharva Kanekar.</span>
+          <span className="footer-tagline">
+            Designed and developed with curiosity.
+          </span>
+        </div>
+      </footer>
+    </>
+  );
 }
