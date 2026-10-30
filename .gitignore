@@ -1,0 +1,7 @@
+node_modules/
+.next/
+out/
+dist/
+.env*
+portfolio-review.png
+portfolio-mobile-review.png
