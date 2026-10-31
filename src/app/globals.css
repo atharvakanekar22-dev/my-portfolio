@@ -252,6 +252,10 @@ img {
   color: #17191d;
 }
 
+.dark .hero-name {
+  color: #ffffff;
+}
+
 .hero-name .accent {
   color: #1554bd;
 }
