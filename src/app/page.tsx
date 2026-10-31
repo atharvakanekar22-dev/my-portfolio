@@ -11,16 +11,29 @@ export default function Home() {
       <Navbar />
       <main>
         {/* ============================================================
-            1. HOME — Centered, pure name highlight.
+            1. HOME
             ============================================================ */}
         <section className="hero" id="home">
-          <Reveal className="hero-inner">
-            <p className="hero-greeting">Hey, I&apos;m</p>
-            <h1 className="hero-name">
-              {profile.firstName}{" "}
-              <span className="accent">{profile.lastName}.</span>
-            </h1>
-          </Reveal>
+          <div className="hero-inner container">
+            <Reveal className="hero-copy">
+              <p className="hero-greeting">Hey, I&apos;m</p>
+              <h1 className="hero-name">
+                {profile.firstName}
+                <span className="accent">{profile.lastName}.</span>
+              </h1>
+            </Reveal>
+
+            <Reveal className="hero-portrait">
+              <div className="hero-orbit" aria-hidden="true">
+              </div>
+              <div className="hero-portrait-circle">
+                <img
+                  src="/images/atharva-portrait.png"
+                  alt="Portrait of Atharva Kanekar"
+                />
+              </div>
+            </Reveal>
+          </div>
         </section>
 
         {/* ============================================================

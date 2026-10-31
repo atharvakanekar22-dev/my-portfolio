@@ -107,6 +107,20 @@ export interface WorkItem {
 
 export const works: WorkItem[] = [
   {
+    name: "International Photography Recognition – Earth Negotiations Bulletin (IISD)",
+    description:
+      "One of my wildlife photographs was published in an international environmental publication by IISD, a globally recognised sustainable-development organisation.",
+    href: "https://enb.iisd.org/asean-strides-toward-achievement-post-2020-biodiversity-framework",
+    type: "profile",
+  },
+  {
+    name: "Wildlife Photography for Unsplash",
+    description:
+      "A quiet collection of wild moments, framed through light, patience, and the beauty of the untamed.",
+    href: "https://unsplash.com/@atharvakanekar22",
+    type: "profile",
+  },
+  {
     name: "Focus Pomodoro",
     description:
       "A calm, minimal Pomodoro timer with customizable focus sessions, breaks, and progress tracking.",
