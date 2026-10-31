@@ -5,6 +5,7 @@
 ### *AI & Software Engineering*
 
 A minimalist, typography-first personal portfolio engineered for clarity, performance, and distinctive digital identity.
+z<img width="39" height="31" alt="image" src="https://github.com/user-attachments/assets/dae4f3de-c7ae-47fc-9da4-4aa430920441" />
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -34,7 +35,7 @@ A minimalist, typography-first personal portfolio engineered for clarity, perfor
 | **02** | [**SUS — Scam Spotter**](https://github.com/atharvakanekar22-dev/sus-scam-detector) | Threat Analysis & Message Pattern Scanner | `Next.js` `TypeScript` `Cybersecurity` |
 | **03** | [**MirageMesh**](https://github.com/atharvakanekar22-dev/MirageMesh) | Cyber Deception Layer & Threat Detection | `React` `Node.js` `Express` |
 | **04** | [**Station Saathi**](https://github.com/atharvakanekar22-dev/StationSathi) | Smart Station Navigation & Route Planning | `React` `FastAPI` `Python` |
-| **05** | **EduPath** | Guided Academic Roadmaps & Learning Paths | `Full-stack` `EdTech` |
+
 
 ---
 
