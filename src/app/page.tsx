@@ -1,4 +1,11 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowUpRight,
+  Download,
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import GitHubGraph from "@/components/GitHubGraph";
 import ProjectCardVisual from "@/components/ProjectCardVisual";
@@ -45,6 +52,26 @@ export default function Home() {
               <p className="section-label">About Me</p>
               <h2 className="section-title">About Me</h2>
               <p className="about-text">{profile.bio}</p>
+              <div className="cv-actions">
+                <a
+                  className="cv-button cv-button-primary"
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FileText size={20} aria-hidden="true" />
+                  <span>View CV</span>
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+                <a
+                  className="cv-button cv-button-secondary"
+                  href="/cv.pdf"
+                  download
+                >
+                  <Download size={20} aria-hidden="true" />
+                  <span>Download CV</span>
+                </a>
+              </div>
             </Reveal>
           </div>
         </section>

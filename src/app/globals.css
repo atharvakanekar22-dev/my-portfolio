@@ -12,6 +12,7 @@
   --color-text: #202124;
   --color-text-secondary: #686868;
   --color-accent: #2456A6;
+  --color-accent-hover: #1D4688;
   --color-border: #E5E5E5;
 
   /* GitHub contribution colors — light */
@@ -31,6 +32,7 @@
   --color-text: #F2F2F2;
   --color-text-secondary: #A8ADB7;
   --color-accent: #76A6FF;
+  --color-accent-hover: #5D8FE8;
   --color-border: #30343B;
 
   /* GitHub contribution colors — dark */
@@ -341,6 +343,51 @@ img {
   font-size: clamp(16px, 1.8vw, 19px);
   line-height: 1.8;
   color: var(--color-text-secondary);
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s,
+    transform 0.2s;
+}
+
+.cv-button:hover {
+  transform: translateY(-2px);
+}
+
+.cv-button-primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.cv-button-primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.cv-button-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.cv-button-secondary:hover {
+  background-color: var(--color-bg-secondary);
 }
 
 /* ========================================================================
