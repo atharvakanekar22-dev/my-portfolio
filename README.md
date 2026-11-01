@@ -4,7 +4,7 @@
 
 ### *AI & Software Engineering*
 
-A minimalist, typography-first personal portfolio engineered for clarity, performance, and distinctive digital identity.
+
 z<img width="39" height="31" alt="image" src="https://github.com/user-attachments/assets/dae4f3de-c7ae-47fc-9da4-4aa430920441" />
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
