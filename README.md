@@ -14,16 +14,8 @@ z<img width="39" height="31" alt="image" src="https://github.com/user-attachment
 
 [**Live Demo**](https://atharvakanekar22-dev.github.io) · [**Explore Projects**](#-selected-projects) · [**Connect**](#-connect)
 
----
 
-</div>
 
-## ✨ Highlights
-
-- **🎯 Minimalist Focal Point** — Clean hero section focusing solely on personal identity with Cobalt Blue accents.
-- **🌗 Adaptive Dual Theming** — Zero-flash Light (`#F7F7F7`) and Dark (`#17191D`) modes with persistent local preferences.
-- **📊 Live GitHub Activity Heatmap** — Real-time interactive contribution graph showing 100+ contributions across 53 weeks with tooltips and mobile-synchronized scrolling.
-- **📱 Fully Responsive** — Precision 3-column navigation, fluid clamp typography, and smooth section reveals.
 
 ---
 
